@@ -1,0 +1,14 @@
+<!-- user.component.html -->
+<div>USERS</div>
+<div *if="user; else noUser">
+    <h2>User Details</h2>
+    <p><strong>ID:</strong> {{ user?.userId }}</p>
+    <p><strong>Username:</strong> {{ user?.username }}</p>
+    <p><strong>Email:</strong> {{ user?.email }}</p>
+    <p><strong>Created At:</strong> {{ user?.createdAt }}</p>
+  </div>
+  
+  <ng-template #noUser>
+    <p>User not found.</p>
+  </ng-template>
+  
