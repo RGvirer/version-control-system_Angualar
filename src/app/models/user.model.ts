@@ -4,7 +4,7 @@ import { Version } from './version.model';
 
 export interface User {
   userId: number;
-  username: string;
+  userName: string;
   email: string;
   createdAt: Date;
   passwordHash: string;
