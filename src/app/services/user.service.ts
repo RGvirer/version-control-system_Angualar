@@ -9,7 +9,6 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  // private apiUrl = 'http://localhost:7180/api/users'; // URL בסיסי ל-API
   private apiUrl = 'https://localhost:7180/api/user'; // URL בסיסי ל-API
 
   constructor(private http: HttpClient) {}
@@ -31,7 +30,7 @@ export class UserService {
 
   // קבלת רשימת כל המשתמשים
   getAll(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/getAll`);
+    return this.http.get<User[]>(`${this.apiUrl}`);
   }
 
   // עדכון משתמש
