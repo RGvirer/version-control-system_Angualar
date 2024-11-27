@@ -1,1 +1,19 @@
-<p>repository works!</p>
+<!-- repository.component.html -->
+<div>USERS</div>
+
+<div *ngIf="allRepositories&& allRepositories.length > 0; else noRepositories">
+  <h1>all Repositories</h1>
+  <ul>
+    <li *ngFor="let repository of allRepositories">
+      <p><strong>ID:</strong> {{ repository.repositoryId }}</p>
+      <p><strong>Repositoryname:</strong> {{ repository.name }}</p>
+      <p><strong>Description:</strong> {{ repository.description }}</p>
+      <p><strong>Created At:</strong> {{ repository.createdAt }}</p>
+      <p><strong>User Id:</strong> {{ repository.userId }}</p>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noRepositories>
+  <p>Repositories not found.</p>
+</ng-template>

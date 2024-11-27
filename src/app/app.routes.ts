@@ -5,6 +5,6 @@ import { RepositoryComponent } from './repository/repository.component';
 export const routes: Routes = [
     { path: 'user', component: UserComponent },
     { path: 'repository', component: RepositoryComponent },
-    { path: '', redirectTo: '/user', pathMatch: 'full' }, // מסלול ברירת מחדל
-    { path: '**', redirectTo: '/user' }, // מסלול לטיפול בטעויות
+    { path: '', redirectTo: '/user', pathMatch: 'full' }, // ניתוב ברירת מחדל
+    { path: '**', redirectTo: '/user' }, // ניתוב לטיפול בטעויות
   ];
