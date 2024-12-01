@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   user: User | null = null; // משתנה לאחסון נתוני המשתמש
-  userId: number = 13; // ניתן לשנות את ה-ID בהתאם לצורך
+  userId: number = 1; // ניתן לשנות את ה-ID בהתאם לצורך
   allUsers: User[] = [];
 
   constructor(private userService: UserService) {}

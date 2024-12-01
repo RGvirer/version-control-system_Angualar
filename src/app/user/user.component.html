@@ -1,7 +1,7 @@
 <!-- user.component.html -->
 <div>USERS</div>
 
-<div *ngIf="allUsers&& allUsers.length > 0; else noUsers">
+<div *ngIf="allUsers && allUsers.length > 0; else noUsers">
   <h1>all Users</h1>
   <ul>
     <li *ngFor="let user of allUsers">
@@ -16,12 +16,29 @@
 <ng-template #noUsers>
   <p>Users not found.</p>
 </ng-template>
+
 <div *ngIf="user; else noUser">
-    <h2>User Details</h2>
-    <p><strong>ID:</strong> {{ user.userId }}</p>
-    <p><strong>Username:</strong> {{ user.userName }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Created At:</strong> {{ user.createdAt }}</p>
+  <h2>User Details</h2>
+  <p><strong>ID:</strong> {{ user.userId }}</p>
+  <p><strong>Username:</strong> {{ user.userName }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Created At:</strong> {{ user.createdAt }}</p>
+  <h3>Repositories</h3>
+  <ul
+    *ngIf="
+      user.repositories && user.repositories.length > 0;
+      else noRepositories
+    "
+  >
+    <li *ngFor="let repo of user.repositories">
+      <p><strong>ID:</strong> {{ repo.repositoryId }}</p>
+      <p><strong>Name:</strong> {{ repo.name }}</p>
+      <p><strong>Created At:</strong> {{ repo.createdAt }}</p>
+    </li>
+  </ul>
+  <ng-template #noRepositories>
+    <p>Repositories not found.</p>
+  </ng-template>
 </div>
 
 <ng-template #noUser>
