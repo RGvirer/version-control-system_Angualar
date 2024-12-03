@@ -1,7 +1,7 @@
 <!-- repository.component.html -->
 <div>USERS</div>
 
-<div *ngIf="allRepositories&& allRepositories.length > 0; else noRepositories">
+<div *ngIf="allRepositories && allRepositories.length > 0; else noRepositories">
   <h1>all Repositories</h1>
   <ul>
     <li *ngFor="let repository of allRepositories">
@@ -9,7 +9,23 @@
       <p><strong>Repositoryname:</strong> {{ repository.name }}</p>
       <p><strong>Description:</strong> {{ repository.description }}</p>
       <p><strong>Created At:</strong> {{ repository.createdAt }}</p>
-      <p><strong>User Id:</strong> {{ repository.userId }}</p>
+      <p><strong>User Id:</strong> {{ repository.repositoryId }}</p>
+      <h3>Branches</h3>
+      <ul
+        *ngIf="
+          repository.branches && repository.branches.length > 0;
+          else noBranches
+        "
+      >
+        <li *ngFor="let br of repository.branches">
+          <p><strong>ID:</strong> {{ br.repositoryId }}</p>
+          <p><strong>Name:</strong> {{ br.name }}</p>
+          <p><strong>Created At:</strong> {{ br.createdAt }}</p>
+        </li>
+      </ul>
+      <ng-template #noBranches>
+        <p>Branches not found.</p>
+      </ng-template>
     </li>
   </ul>
 </div>
